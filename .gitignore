@@ -1,3 +1,10 @@
 # For local Claude environment
 .claude/settings.local.json
-CLAUDE.local.md
+.claude/CLAUDE.local.md
+
+# For local environment
+.env.local
+
+# Python bytecode
+__pycache__/
+*.py[cod]
