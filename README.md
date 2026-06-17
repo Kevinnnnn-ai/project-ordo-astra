@@ -1,6 +1,6 @@
 # Project Ordo Astra
 
-A genetic algorithm for the Euclidean 2D Traveling Salesman Problem, framed as space exploration — each node is a planet, moon, or landmark, so every tour is an optimized exploration route.
+A genetic algorithm for the Euclidean 2D Traveling Salesman Problem, framed as space exploration — every node is a planet, moon, or landmark, so each tour is an optimized exploration route.
 
 ![Python](https://img.shields.io/badge/python-3.14-blue)
 ![numpy](https://img.shields.io/badge/numpy-%E2%89%A52.4.6-blue)
@@ -31,11 +31,11 @@ A genetic algorithm for the Euclidean 2D Traveling Salesman Problem, framed as s
 ## Ⅱ • Features
 
 - **Genetic algorithm core** — population init, fitness evaluation, tournament selection, order crossover (OX), and swap mutation, all over integer-encoded tours.
-- **Two-opt local search** — applied to the cheapest ~10% of each generation plus the running elite, sharpening tours without the cost of refining the whole population.
-- **Elitism with convergence detection** — the best tour always survives; a run stops early once it stagnates, hits the optimum, or reaches the generation cap.
+- **Two-opt local search** — refines the cheapest ~10% of each generation plus the running elite, sharpening tours without paying to refine the whole population.
+- **Elitism with convergence detection** — the best tour always survives; a run stops early once it stagnates, hits the known optimum, or reaches the generation cap.
 - **JIT-accelerated kernels** — every hot path is `numba.njit` compiled (parallel, no-GIL, cached), so generations run at native speed after a one-time compile.
-- **Standard benchmark instances** — loads [TSPLIB](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/) `EUC_2D` instances and compares against known optimal tour lengths to report percent error.
-- **Batch experiment driver** — runs the GA across all 78 listed `EUC_2D` instances, 10 runs each, writing one parseable log per run.
+- **Standard benchmark instances** — loads [TSPLIB](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/) `EUC_2D` instances and reports percent error against known optimal tour lengths.
+- **Batch experiment driver** — sweeps the GA across all 78 listed `EUC_2D` instances, 10 runs each, writing one parseable log per run.
 - **Built-in analysis** — turns run logs into plots: tours, convergence curves, edge heat maps, and aggregate error / computation-time scaling across instance sizes.
 
 ---
@@ -79,7 +79,7 @@ percentError: 0.0
 computationTime: 0.005s
 ```
 
-The analysis tools visualize these results in `stdout/analysis/` — final tours, per-run and aggregate convergence, edge-usage heat maps, and error / time scaling against instance size `n`.
+The analysis tools render these results into `stdout/analysis/` — final tours, per-run and aggregate convergence, edge-usage heat maps, and error / time scaling against instance size `n`.
 
 ---
 
