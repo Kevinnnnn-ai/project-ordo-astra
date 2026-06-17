@@ -2,14 +2,14 @@
 
 A genetic algorithm for the Euclidean 2D Traveling Salesman Problem, framed as space exploration — every node is a planet, moon, or landmark, so each tour is an optimized exploration route.
 
-![Python](https://img.shields.io/badge/python-3.14-blue)
-![numpy](https://img.shields.io/badge/numpy-%E2%89%A52.4.6-blue)
-![numba](https://img.shields.io/badge/numba-%E2%89%A50.65.1-blue)
-![scipy](https://img.shields.io/badge/scipy-%E2%89%A51.14.0-blue)
-![matplotlib](https://img.shields.io/badge/matplotlib-%E2%89%A53.11.0-blue)
-![tsplib95](https://img.shields.io/badge/tsplib95-%E2%89%A50.7.1-blue)
-![license](https://img.shields.io/badge/license-TBD-lightgrey)
-![build](https://img.shields.io/badge/build-local-informational)
+![Python](https://img.shields.io/badge/Python-3.14-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-%E2%89%A52.4.6-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Numba](https://img.shields.io/badge/Numba-%E2%89%A50.65.1-00A3E0?style=for-the-badge&logo=numba&logoColor=white)
+![SciPy](https://img.shields.io/badge/SciPy-%E2%89%A51.14.0-8CAAE6?style=for-the-badge&logo=scipy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-%E2%89%A53.11.0-11557C?style=for-the-badge&logo=python&logoColor=white)
+![tsplib95](https://img.shields.io/badge/tsplib95-%E2%89%A50.7.1-4B8BBE?style=for-the-badge)
+![License](https://img.shields.io/badge/License-TBD-lightgrey?style=for-the-badge)
+![Build](https://img.shields.io/badge/Build-local-informational?style=for-the-badge)
 
 ---
 
