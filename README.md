@@ -273,7 +273,7 @@ project-ordo-astra/
 
 ## Ⅸ • License
 
-No license file is currently distributed with this project. Until a `LICENSE` is added, all rights are reserved by the author — please contact the maintainer before reuse or redistribution.
+No license file is currently distributed with this project. Until a `LICENSE` is added, all rights are reserved by the author—please contact the maintainer before reuse or redistribution.
 
 <br>
 
