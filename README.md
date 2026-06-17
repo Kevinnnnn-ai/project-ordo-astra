@@ -30,6 +30,8 @@ A genetic algorithm for the Euclidean 2D Traveling Salesman Problem, framed as s
 - [Ⅹ • Authors](#ⅹ--authors)
 - [Ⅺ • Contact](#ⅺ--contact)
 
+<br>
+
 ---
 
 ## Ⅱ • Features
@@ -41,6 +43,8 @@ A genetic algorithm for the Euclidean 2D Traveling Salesman Problem, framed as s
 - **Standard benchmark instances** — loads [TSPLIB](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/) `EUC_2D` instances and reports percent error against known optimal tour lengths.
 - **Batch experiment driver** — sweeps the GA across all 78 listed `EUC_2D` instances, 10 runs each, writing one parseable log per run.
 - **Built-in analysis** — turns run logs into plots: tours, convergence curves, edge heat maps, and aggregate error / computation-time scaling across instance sizes.
+
+<br>
 
 ---
 
@@ -85,6 +89,8 @@ computationTime: 0.005s
 
 The analysis tools render these results into `stdout/analysis/` — final tours, per-run and aggregate convergence, edge-usage heat maps, and error / time scaling against instance size `n`.
 
+<br>
+
 ---
 
 ## Ⅳ • Quick Start
@@ -102,6 +108,8 @@ python -m src.main
 ```
 
 > **Note** — `python -m src.main` is a long batch job and **overwrites** existing logs in `stdout/runs/`. For a quick sanity check, run a single small instance instead (see [Usage](#ⅵ--usage)). The first GA call pays a ~10s one-time `numba` compile cost.
+
+<br>
 
 ---
 
@@ -135,6 +143,8 @@ python -m venv .env.local
 
 pip install -r requirements.txt
 ```
+
+<br>
 
 ---
 
@@ -188,6 +198,8 @@ from src.utils.filter_util import Filter
 Filter().filterEuc2D()
 ```
 
+<br>
+
 ---
 
 ## Ⅶ • Configuration
@@ -217,6 +229,8 @@ Batch driver settings live in [src/main.py](src/main.py):
 | `EXCLUSIONS` | `set()` | Instance names to skip from the list |
 
 Plot styling toggles (fit modes, aggregate-curve display) are attributes set in `Plot.__init__` in [src/utils/plot_util.py](src/utils/plot_util.py).
+
+<br>
 
 ---
 
@@ -264,11 +278,15 @@ project-ordo-astra/
 
 - [TSPLIB95 instance library](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/) — source of the benchmark instances and the `EUC_2D` format.
 
+<br>
+
 ---
 
 ## Ⅸ • License
 
 No license file is currently distributed with this project. Until a `LICENSE` is added, all rights are reserved by the author — please contact the maintainer before reuse or redistribution.
+
+<br>
 
 ---
 
@@ -276,9 +294,17 @@ No license file is currently distributed with this project. Until a `LICENSE` is
 
 - **Kevinnnnn-ai** — author and maintainer ([github.com/Kevinnnnn-ai](https://github.com/Kevinnnnn-ai))
 
+<br>
+
 ---
 
 ## Ⅺ • Contact
 
 - **Repository** — [github.com/Kevinnnnn-ai/project-ordo-astra](https://github.com/Kevinnnnn-ai/project-ordo-astra)
 - **Issues** — please open a [GitHub issue](https://github.com/Kevinnnnn-ai/project-ordo-astra/issues) for bugs, questions, or feature requests
+
+<br>
+
+---
+
+*Last Updated: June 17, 2026*
