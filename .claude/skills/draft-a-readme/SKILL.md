@@ -24,7 +24,7 @@ This skill is designed to draft a decent one-shotted sample README that can be p
 
 # README Structure
 
-- Past the header, separate each section with "`<br>`" for better readability.
+- Past the header, separate each section only with "`<br>`" for better readability.
 
 ## Main Header
 
