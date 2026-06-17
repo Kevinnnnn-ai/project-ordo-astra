@@ -225,8 +225,6 @@ Plot styling toggles (fit modes, aggregate-curve display) are attributes set in 
 
 <br>
 
----
-
 ## Ⅷ • Reference
 
 ### Project layout
