@@ -1,8 +1,8 @@
-# For local Claude environment
+# Local Claude configuration
 .claude/settings.local.json
 .claude/CLAUDE.local.md
 
-# For local environment
+# Local environment
 .env.local
 
 # Python bytecode
