@@ -1,3 +1,5 @@
+<div align="center">
+
 # Project Ordo Astra
 
 A genetic algorithm for the Euclidean 2D Traveling Salesman Problem, framed as space exploration — every node is a planet, moon, or landmark, so each tour is an optimized exploration route.
@@ -10,6 +12,8 @@ A genetic algorithm for the Euclidean 2D Traveling Salesman Problem, framed as s
 ![tsplib95](https://img.shields.io/badge/tsplib95-%E2%89%A50.7.1-4B8BBE?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-TBD-lightgrey?style=for-the-badge)
 ![Build](https://img.shields.io/badge/Build-local-informational?style=for-the-badge)
+
+</div>
 
 ---
 
