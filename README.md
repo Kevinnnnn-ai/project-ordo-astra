@@ -2,7 +2,7 @@
 
 # Project Ordo Astra
 
-A genetic algorithm for the Euclidean 2D Traveling Salesman Problem, framed as space exploration — every node is a planet, moon, or landmark, so each tour is an optimized exploration route.
+A genetic algorithm for the Euclidean 2D Traveling Salesman Problem, framed as space exploration—every node is a planet, moon, or landmark, so each tour is an optimized exploration route.
 
 ![Python](https://img.shields.io/badge/Python-3.14-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![NumPy](https://img.shields.io/badge/NumPy-%E2%89%A52.4.6-013243?style=for-the-badge&logo=numpy&logoColor=white)
@@ -32,25 +32,21 @@ A genetic algorithm for the Euclidean 2D Traveling Salesman Problem, framed as s
 
 <br>
 
----
-
 ## Ⅱ • Features
 
-- **Genetic algorithm core** — population init, fitness evaluation, tournament selection, order crossover (OX), and swap mutation, all over integer-encoded tours.
+- **Genetic algorithm** — population, fitness, selection, order crossover (OX), and swap mutation, over integer-encoded tours.
 - **Two-opt local search** — refines the cheapest ~10% of each generation plus the running elite, sharpening tours without paying to refine the whole population.
 - **Elitism with convergence detection** — the best tour always survives; a run stops early once it stagnates, hits the known optimum, or reaches the generation cap.
 - **JIT-accelerated kernels** — every hot path is `numba.njit` compiled (parallel, no-GIL, cached), so generations run at native speed after a one-time compile.
-- **Standard benchmark instances** — loads [TSPLIB](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/) `EUC_2D` instances and reports percent error against known optimal tour lengths.
-- **Batch experiment driver** — sweeps the GA across all 78 listed `EUC_2D` instances, 10 runs each, writing one parseable log per run.
-- **Built-in analysis** — turns run logs into plots: tours, convergence curves, edge heat maps, and aggregate error / computation-time scaling across instance sizes.
+- **TSPLIB instances** — loads [TSPLIB](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/) `EUC_2D` instances and reports percent error against known optimal tour lengths.
+- **Batch driver** — sweeps the GA across all 78 listed `EUC_2D` instances, 10 runs each, writing one parseable log per run.
+- **Analysis** — turns run logs into plots: tours, convergence curves, edge heat maps, and aggregate error / computation-time scaling across instance sizes.
 
 <br>
 
----
-
 ## Ⅲ • Demonstration
 
-A single run prints a per-generation trace and a summary, then writes a log to `stdout/runs/<instance>/<instance>_<runNum>.txt`:
+A single run prints a per-generation trace and a summary:
 
 ```text
 Instance (EUC_2D): berlin52
@@ -60,6 +56,7 @@ Compiling and initializing GA...
 
 Gen. Time: 0.001s, Gen.: 1, Elite: 7670.0, % Error: 1.697%
 Gen. Time: 0.001s, Gen.: 2, Elite: 7542.0, % Error: 0.000%
+
 ...
 
 Elite tour distance (fitness): 7542.0
@@ -68,7 +65,7 @@ Percent Error (%): 0.000%
 Computation Time (seconds): 0.005s
 ```
 
-The log file (consumed by the analysis tools) keeps the same data plus the final tour:
+Then it writes a log to `stdout/runs/<instance>/<instance>_<runNum>.txt`:
 
 ```text
 instanceName: berlin52
@@ -78,7 +75,9 @@ optFit: 7542
 genTime, gen, eliteFit, percentError:
 8.55e-05, 0, 23237.0, 208.101
 0.00171, 1, 7670.0, 1.697
+
 ...
+
 tour:
 [41 20 16  2 17 30 21  0 48 31 44 ...]
 
@@ -87,11 +86,9 @@ percentError: 0.0
 computationTime: 0.005s
 ```
 
-The analysis tools render these results into `stdout/analysis/` — final tours, per-run and aggregate convergence, edge-usage heat maps, and error / time scaling against instance size `n`.
+The analysis tools render these results into `stdout/analysis/`—final tours, per-run and aggregate convergence, edge-usage heat maps, and error / time scaling against instance size `n`.
 
 <br>
-
----
 
 ## Ⅳ • Quick Start
 
@@ -107,25 +104,22 @@ pip install -r requirements.txt
 python -m src.main
 ```
 
-> **Note** — `python -m src.main` is a long batch job and **overwrites** existing logs in `stdout/runs/`. For a quick sanity check, run a single small instance instead (see [Usage](#ⅵ--usage)). The first GA call pays a ~10s one-time `numba` compile cost.
+**Note** — `python -m src.main` is a long batch job and **overwrites** existing logs in `stdout/runs/`. For a quick sanity check, run a single small instance instead (see [Usage](#ⅵ--usage)). The first GA call pays a ~10s one-time `numba` compile cost.
 
 <br>
-
----
 
 ## Ⅴ • Installation
 
 ### Requirements
 
 - **Python 3.14**
-- A virtual environment named `.env.local` (the project's interpreter path is `./.env.local/Scripts/python.exe`; this directory is gitignored)
 
 ### Dependencies
 
 Pinned in [requirements.txt](requirements.txt):
 
 | Library | Version | Role |
-| --- | --- | --- |
+|---------|---------|------|
 | `tsplib95` | `>= 0.7.1` | Loads `.tsp` instance files |
 | `numba` | `>= 0.65.1` | JIT compilation of the GA kernels |
 | `numpy` | `>= 2.4.6` | Array operations and tour encoding |
@@ -135,18 +129,19 @@ Pinned in [requirements.txt](requirements.txt):
 ### Steps
 
 ```powershell
+# 1. Clone the repository and move into it
 git clone https://github.com/Kevinnnnn-ai/project-ordo-astra.git
 cd project-ordo-astra
 
+# 2. Create and activate a virtual environment named .env.local
 python -m venv .env.local
 .\.env.local\Scripts\Activate.ps1
 
+# 3. Install all required dependencies
 pip install -r requirements.txt
 ```
 
 <br>
-
----
 
 ## Ⅵ • Usage
 
@@ -200,14 +195,12 @@ Filter().filterEuc2D()
 
 <br>
 
----
-
 ## Ⅶ • Configuration
 
 GA hyperparameters are module-level constants at the top of [src/genetic_algorithm/genetic_algorithm.py](src/genetic_algorithm/genetic_algorithm.py):
 
 | Constant | Default | Meaning |
-| --- | --- | --- |
+|----------|---------|---------|
 | `POP_SIZE` | `200` | Number of tours per generation |
 | `MAX_GENS` | `1000` | Hard cap on generations per run |
 | `SELECTION_SIZE` | `7` | Tournament size for parent selection |
@@ -222,7 +215,7 @@ Numba behavior is controlled by `NO_GIL`, `CAN_PARALLEL`, and `CAN_CACHE` in the
 Batch driver settings live in [src/main.py](src/main.py):
 
 | Constant | Default | Meaning |
-| --- | --- | --- |
+|----------|---------|---------|
 | `INSTANCE_TYPE` | `'euc_2d'` | Instance family to run |
 | `NUM_RUNS` | `10` | Runs per instance |
 | `START_RUN` | `0` | Starting run index (offsets log filenames) |
@@ -280,23 +273,17 @@ project-ordo-astra/
 
 <br>
 
----
-
 ## Ⅸ • License
 
 No license file is currently distributed with this project. Until a `LICENSE` is added, all rights are reserved by the author — please contact the maintainer before reuse or redistribution.
 
 <br>
 
----
-
 ## Ⅹ • Authors
 
 - **Kevinnnnn-ai** — author and maintainer ([github.com/Kevinnnnn-ai](https://github.com/Kevinnnnn-ai))
 
 <br>
-
----
 
 ## Ⅺ • Contact
 
