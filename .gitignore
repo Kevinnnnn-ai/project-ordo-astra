@@ -1,0 +1,3 @@
+# For local Claude environment
+.claude/settings.local.json
+CLAUDE.local.md
