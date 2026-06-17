@@ -13,6 +13,7 @@ Keep all things short but descriptive. Try to not abbreviate unless it is common
 - **Functions** — Use camel case. Always start the function with a verb (e.g., `run`, `calc`, etc.). Prefix helper functions with an underscore (e.g., `_runOX`).
 - **Classes** — Use pascal case. Prefix helper classes with an underscore.
 - **Whitespace** — When separating sections (e.g., `imports`, `variables`, `functions`, etc.), use 3 newlines. Otherwise, only deploy single newlines — and even then, use them sparingly. However, with nested sections — unless lengthy — avoid applying this rule (e.g., `functions` in `classes`).
+- **Multi-line Brackets** — When opening brackets or parentheses across multiple lines, open them up all the way, ensuring each hierarchy of bracket recieves its own line.
 
 # Debugging and logging
 
