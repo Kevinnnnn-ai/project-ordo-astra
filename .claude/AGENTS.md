@@ -8,10 +8,11 @@
 Keep all things short but descriptive. Try to not abbreviate unless it is common in the code base.
 
 - **Variables** — Use camel case. Local iteration values should always be denoted with `i` or `j`. Local, short-lived, positional values should be denoted with letters from the alphabet, with the order they appear in corresponding to the order of the alphabet.
-    - **Booleans** — Always start the variable with a boolean prefix (e.g., `can`, `has`, `is`).
+    - **Booleans** — Always start the variable with a boolean prefix (e.g., `can`, `has`, `is`, etc.).
     - **Constants** — Use screaming snake case.
-- **Functions** — Use camel case. Always start the function with a verb (e.g., `run`, `calc`).
+- **Functions** — Use camel case. Always start the function with a verb (e.g., `run`, `calc`, etc.).
 - **Classes** — Use pascal case.
+- **Whitespace** — When separating functions, classes, or sections (e.g., `imports`, `variables`, `functions`, etc.), use 3 newlines. Otherwise, only deploy single newlines — and even then, use them sparingly.
 
 # Debugging and logging
 
