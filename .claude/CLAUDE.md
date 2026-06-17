@@ -2,7 +2,12 @@
 
 ## While Working in `.`
 
-Refer to `.claude/AGENTS.md`
+- Refer to `./.claude/AGENTS.md`
+
+## While Working in `./stdout/runs/`
+
+- Do not interfere with any pre-existing run files.
+- Ensure that test runs will not interfere with any pre-existing run files.
 
 ## General Rules
 
