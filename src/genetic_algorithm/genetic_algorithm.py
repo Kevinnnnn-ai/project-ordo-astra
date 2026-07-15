@@ -203,6 +203,7 @@ def RunGeneticAlgorithm(instance, run_number):
             stagnant_generations = 0
         else:
             stagnant_generations += 1
+            
         elite_tour = RunTwoOpt(number_of_nodes, elite_tour.copy(), distance_matrix)
         elite_fitness = CalculateIndividualFitness(number_of_nodes, elite_tour, distance_matrix)
 
