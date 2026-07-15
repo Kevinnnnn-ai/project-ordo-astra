@@ -17,6 +17,8 @@
 </div>
 ---
 
+
+
 ## I - Table of Contents
 - [II - Features](#ii--features)
 - [III - Demonstration](#iii--demonstration)
@@ -31,6 +33,8 @@
 
 <br>
 
+
+
 ## II - Features
 - **Genetic algorithm**: population, fitness, selection, order crossover, and swap mutation, over integer-encoded tours.
 - **Two-opt**: refines the cheapest ~10% of each generation plus the running elite.
@@ -41,6 +45,8 @@
 - **Analysis**: turns run logs into plots: tours, convergence curves, edge heat maps, and aggregate error vs. computation-time scaling across instance sizes.
 
 <br>
+
+
 
 ## III - Demonstration
 A single run prints a per-generation trace and a summary:
@@ -87,6 +93,8 @@ The analysis tools render these results into `./stdout/analysis/`: final tours, 
 
 <br>
 
+
+
 ## IV - Quick Start
 ```powershell
 # 1. Create and activate a virtual environment named .env.local
@@ -103,6 +111,8 @@ python -m src.main
 **Note**: `python -m src.main` is a long batch job and **overwrites** existing logs in `./stdout/runs/`. For a quick sanity check, run a single small instance instead (see [Usage](#vi--usage)). The first GA call pays a ~10s one-time `numba` compile cost.
 
 <br>
+
+
 
 ## V - Installation
 ### Requirements
@@ -134,6 +144,8 @@ pip install -r requirements.txt
 ```
 
 <br>
+
+
 
 ## VI - Usage
 All commands run from the **repository root** with the project virtual environment active.
@@ -182,6 +194,8 @@ Filter().FilterEuclidean2DInstances()
 
 <br>
 
+
+
 ## VII - Configuration
 GA hyperparameters are module-level constants at the top of [./src/genetic_algorithm/genetic_algorithm.py](src/genetic_algorithm/genetic_algorithm.py):
 
@@ -208,6 +222,8 @@ Numba behavior is controlled by `NO_GIL`, `CAN_PARALLEL`, and `CAN_CACHE` in the
 Plot styling toggles (fit modes, aggregate-curve display) are attributes set in `Plot.__init__` in [./src/utilities/plot_utility.py](src/utilities/plot_utility.py).
 
 <br>
+
+
 
 ## VIII - Reference
 ### Project layout
@@ -250,15 +266,21 @@ project-ordo-astra/
 
 <br>
 
+
+
 ## IX - License
 Released under the [MIT License](LICENSE). You are free to use, modify, and distribute this software, provided the original copyright notice and license text are retained.
 
 <br>
 
+
+
 ## X - Authors
 - **Kevinnnnn-ai**: author and maintainer ([github.com/Kevinnnnn-ai](https://github.com/Kevinnnnn-ai))
 
 <br>
+
+
 
 ## XI - Contact
 - **Repository**: [github.com/Kevinnnnn-ai/project-ordo-astra](https://github.com/Kevinnnnn-ai/project-ordo-astra)
