@@ -2,14 +2,12 @@ import numpy as np
 import tsplib95 as tl
 from pathlib import Path
 
+def GetOptimalFitnesses(optimal_fitnesses_file):
+    optimal_fitnesses = {}
+    if not optimal_fitnesses_file.exists():
+        return optimal_fitnesses
 
-
-def _getOptFits(optFitsFile):
-    optFits = {}
-    if not optFitsFile.exists():
-        return optFits
-
-    with open(optFitsFile, 'r') as f:
+    with open(optimal_fitnesses_file, 'r') as f:
         for line in f:
             line = line.strip()
             if not line or line.startswith('#'):
@@ -19,32 +17,30 @@ def _getOptFits(optFitsFile):
 
             key, value = line.split(':', 1)
             try:
-                optFits[key.strip()] = int(value.strip())
+                optimal_fitnesses[key.strip()] = int(value.strip())
             except ValueError:
                 continue
 
-    return optFits
+    return optimal_fitnesses
 
+class Euclidean2D:
+    def __init__(self, instance_name):
+        self.instance_type = 'Euclidean 2D TSP'
+        self.root_directory = Path(__file__).resolve().parents[2]
+        self.optimal_fitnesses_file = self.root_directory / 'res' / 'info' / 'opt-fits.txt'
 
+        self.instance_name = instance_name
+        self.instance_file = self.root_directory / 'res' / 'tsplib' / 'tsp' / f'{instance_name}.tsp'
+        self.instance = tl.load(self.instance_file)
 
-class Euc2D:
-    def __init__(self, instanceName):
-        self.instanceType = 'Euclidean 2D TSP'
-        self.rootDir = Path(__file__).resolve().parents[2]
-        self.optFitsFile = self.rootDir / 'res' / 'info' / 'opt-fits.txt'
-
-        self.instanceName = instanceName
-        self.instanceFile = self.rootDir / 'res' / 'tsplib' / 'tsp' / f'{instanceName}.tsp'
-        self.instance = tl.load(self.instanceFile)
-
-        self.edgeWeightType = self.instance.edge_weight_type
+        self.edge_weight_type = self.instance.edge_weight_type
         nodes = self.instance.node_coords.values()
         self.nodes = np.array(list(nodes))
-        self.optFit = _getOptFits(self.optFitsFile).get(self.instanceName)
-        self.n = self.nodes.shape[0]
+        self.optimal_fitness = GetOptimalFitnesses(self.optimal_fitnesses_file).get(self.instance_name)
+        self.number_of_nodes = self.nodes.shape[0]
 
-    def getNodes(self):
+    def GetNodes(self):
         return self.nodes
 
-    def getN(self):
-        return self.n
+    def GetNumberOfNodes(self):
+        return self.number_of_nodes

@@ -1,10 +1,5 @@
-# Local Claude configuration
 .claude/settings.local.json
 .claude/CLAUDE.local.md
-
-# Local environment
 .env.local
-
-# Python bytecode
 __pycache__/
 *.py[cod]

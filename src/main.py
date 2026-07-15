@@ -1,44 +1,36 @@
-from .utils.instance_util import Euc2D
-from .genetic_algorithm import runGA
 from pathlib import Path
+from .utilities.instance_utility import Euclidean2D
+from .genetic_algorithm.genetic_algorithm import RunGeneticAlgorithm
 
-
-
-EXCLUSIONS = set()
-INSTANCE_TYPE = 'euc_2d'
-NUM_RUNS = 10
-START_RUN = 0
-
-
+exclusions = set()
+instance_type = 'euc_2d'
+number_of_runs = 10
+starting_run = 0
 
 class Run:
-    def __init__(self, instanceName, instanceType):
-        self.instanceName = instanceName
-        self.instanceType = instanceType
+    def __init__(self, instance_name, instance_type):
+        self.instance_name = instance_name
+        self.instance_type = instance_type
 
-    def runGa(self, numRuns, instance, startRun):
-        for i in range(numRuns):
-            runGA(instance, i + startRun)
+    def RunGeneticAlgorithmForInstance(self, number_of_runs, instance, starting_run):
+        for i in range(number_of_runs):
+            RunGeneticAlgorithm(instance, i + starting_run)
 
-
-
-def getInstanceNames(instancesFile):
-    instanceNames = []
-    for line in open(instancesFile, 'r'):
+def GetInstanceNames(instances_file):
+    instance_names = []
+    for line in open(instances_file, 'r'):
         line = line.strip()
-        if line and line not in EXCLUSIONS:
-            instanceNames.append(line)
-    return instanceNames
-
-
+        if line and line not in exclusions:
+            instance_names.append(line)
+    return instance_names
 
 if __name__ == '__main__':
-    rootDir = Path(__file__).resolve().parents[1]
-    instancesFile = rootDir / 'res' / 'info' / 'euc-2d-instances.txt'
-    instanceNames = getInstanceNames(instancesFile)
+    root_directory = Path(__file__).resolve().parents[1]
+    instances_file = root_directory / 'res' / 'info' / 'euc-2d-instances.txt'
+    instance_names = GetInstanceNames(instances_file)
 
-    for instanceName in instanceNames:
-        run = Run(instanceName, INSTANCE_TYPE)
-        if INSTANCE_TYPE == 'euc_2d':
-            instance = Euc2D(instanceName)
-        run.runGa(NUM_RUNS, instance, START_RUN)
+    for instance_name in instance_names:
+        run = Run(instance_name, instance_type)
+        if instance_type == 'euc_2d':
+            instance = Euclidean2D(instance_name)
+        run.RunGeneticAlgorithmForInstance(number_of_runs, instance, starting_run)

@@ -1,64 +1,58 @@
 import numpy as np
 import sys
 
-
-
 class Log:
-    def __init__(self, logFile):
-        self.logFile = logFile
+    def __init__(self, log_file):
+        self.log_file = log_file
 
-    def logStart(self, instance):
+    def LogStart(self, instance):
         print(
-            f'\nInstance ({instance.edgeWeightType}): {instance.instanceName}'
-            f'\nNumber of nodes (n): {instance.n}'
-            f'\nOptimal tour distance (fitness): {instance.optFit}'
+            f'\nInstance ({instance.edge_weight_type}): {instance.instance_name}'
+            f'\nNumber of nodes (n): {instance.number_of_nodes}'
+            f'\nOptimal tour distance (fitness): {instance.optimal_fitness}'
             '\nCompiling and initializing GA...'
             '\n'
         )
 
-        with open(self.logFile, 'w', newline='') as a:
+        with open(self.log_file, 'w', newline='') as a:
             a.write(
-                f'instanceName: {instance.instanceName}'
-                f'\nn: {instance.n}'
-                f'\noptFit: {instance.optFit}'
+                f'instanceName: {instance.instance_name}'
+                f'\nn: {instance.number_of_nodes}'
+                f'\noptFit: {instance.optimal_fitness}'
                 '\n'
                 '\ngenTime, gen, eliteFit, percentError:'
             )
 
-
-
-    def logGen(self, genTime, gen, eliteFit, percentError):
-        errorStr = f'{percentError:.3f}%' if percentError is not None else 'N/A'
+    def LogGeneration(self, generation_time, generation_number, elite_fitness, percent_error):
+        error_string = f'{percent_error:.3f}%' if percent_error is not None else 'N/A'
         print(
-            f'Gen. Time: {genTime:.3f}s, '
-            f'Gen.: {gen}, '
-            f'Elite: {eliteFit}, '
-            f'% Error: {errorStr}'
+            f'Gen. Time: {generation_time:.3f}s, '
+            f'Gen.: {generation_number}, '
+            f'Elite: {elite_fitness}, '
+            f'% Error: {error_string}'
         )
 
-        errorVal = f'{percentError:.3f}' if percentError is not None else 'N/A'
-        with open(self.logFile, 'a', newline='') as a:
-            a.write(f'\n{genTime}, {gen}, {eliteFit}, {errorVal}')
+        error_value = f'{percent_error:.3f}' if percent_error is not None else 'N/A'
+        with open(self.log_file, 'a', newline='') as a:
+            a.write(f'\n{generation_time}, {generation_number}, {elite_fitness}, {error_value}')
 
-
-
-    def logEnd(self, eliteFit, optFit, percentError, endTime, startTime, tour):
-        errorStr = f'{percentError:.3f}%' if percentError is not None else 'N/A'
+    def LogEnd(self, elite_fitness, optimal_fitness, percent_error, end_time, start_time, tour):
+        error_string = f'{percent_error:.3f}%' if percent_error is not None else 'N/A'
         print(
-            f'\nElite tour distance (fitness): {eliteFit}'
-            f'\nOptimal tour distance (fitness): {optFit}'
-            f'\nPercent Error (%): {errorStr}'
-            f'\nComputation Time (seconds): {endTime - startTime:.3f}s'
+            f'\nElite tour distance (fitness): {elite_fitness}'
+            f'\nOptimal tour distance (fitness): {optimal_fitness}'
+            f'\nPercent Error (%): {error_string}'
+            f'\nComputation Time (seconds): {end_time - start_time:.3f}s'
             '\n'
         )
 
-        fullTour = np.array2string(tour, threshold=sys.maxsize)
-        with open(self.logFile, 'a', newline='') as a:
+        full_tour = np.array2string(tour, threshold=sys.maxsize)
+        with open(self.log_file, 'a', newline='') as a:
             a.write(
                 '\n'
-                f'\ntour:\n{fullTour}'
+                f'\ntour:\n{full_tour}'
                 '\n'
-                f'\neliteFit: {eliteFit}'
-                f'\npercentError: {percentError}'
-                f'\ncomputationTime: {endTime - startTime:.3f}s'
+                f'\neliteFit: {elite_fitness}'
+                f'\npercentError: {percent_error}'
+                f'\ncomputationTime: {end_time - start_time:.3f}s'
             )
